@@ -1,0 +1,29 @@
+<div class="row filter border">
+  <div class='col-md-2 col-sm-12'>
+    <%= label_tag :label, 'Filter' %>
+    </div>
+  <div class='col-md-3 col-sm-12'>
+  <%= link_to 'Open', issues_path(status: 'open'), class:"form-control btn-filter" %>
+  </div>
+  <div class='col-md-3 col-sm-12'>
+  <%= link_to 'Closed', issues_path(status: 'closed'), class:"form-control btn-filter" %>
+  </div>
+  <div class='col-md-3 col-sm-12'>
+  <%= link_to 'All', issues_path, class:"form-control btn-filter" %>
+  </div>
+</div>
+<% @issues.each do |issue| %>
+  <div class="row form-group border-bottom">
+    <div class='col-md-3 col-sm-6'>
+    <%= link_to issue.title, issue_path(issue), class: 'title', data: {toggle: "modal", target: "#modal"} %>
+    <%= label_tag :label, issue.label_name, class:"label" %>
+
+    </div>
+    <div class='col-md-3 col-sm-6'>
+    <%= label_tag :description, issue.description %>
+    </div>
+    <div class='col-md-3 col-sm-6'>
+      <%= label_tag :author, issue.author_name %>
+      </div>
+  </div>
+<% end %>
