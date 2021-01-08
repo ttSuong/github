@@ -15,12 +15,8 @@
 <% @issues.each do |issue| %>
   <div class="row form-group border-bottom">
     <div class='col-md-3 col-sm-6'>
-    <%= link_to issue.title, issue_path(issue), class: 'title', data: {toggle: "modal", target: "#modal"} %>
+    <%= link_to issue.title, issue_path(id: issue.id), class: 'title' %>
     <%= label_tag :label, issue.label_name, class:"label" %>
-
-    </div>
-    <div class='col-md-3 col-sm-6'>
-    <%= label_tag :description, issue.description %>
     </div>
     <div class='col-md-3 col-sm-6'>
       <%= label_tag :author, issue.author_name %>
