@@ -15,7 +15,7 @@
 <% @issues.each do |issue| %>
   <div class="row form-group border-bottom">
     <div class='col-md-3 col-sm-6'>
-    <%= link_to issue.title, issue_path(id: issue.id), class: 'title' %>
+    <%= link_to issue.title, issue_path(id: issue.id), class: 'title', remote: true %>
     <%= label_tag :label, issue.label_name, class:"label" %>
     </div>
     <div class='col-md-3 col-sm-6'>
@@ -23,3 +23,4 @@
       </div>
   </div>
 <% end %>
+<div id='issue-content'></div>
